@@ -1,14 +1,11 @@
-"""Count occurrences of a pattern in text."""
-
-
 def PatternCount(text: str, pattern: str) -> int:
-    """Return the number of occurrences of pattern in text.
+  
+    if len(pattern) > len(text) or not text:
+        return 0
 
-    Matches are case-sensitive and may overlap. Assume pattern is nonempty.
-    Return 0 if pattern is longer than text or text is empty.
+    count = 0
+    for i in range(len(text) - len(pattern) + 1):
+        if text[i:i + len(pattern)] == pattern:
+            count += 1
 
-    Example:
-        PatternCount("AAAA", "AA") returns 3.
-    """
-    # TODO: Implement this function.
-    raise NotImplementedError("Implement PatternCount")
+    return count
