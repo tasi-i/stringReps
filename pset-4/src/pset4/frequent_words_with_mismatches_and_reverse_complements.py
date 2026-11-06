@@ -2,6 +2,7 @@ def frequentWordsWithMismatchesAndReverseComplements(text: str, k: int, d: int) 
     comp = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
     
 def reverseComplement(s: str) -> str:
+        comp = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
         return "".join(comp[c] for c in reversed(s))
 
 def _neighbors(pattern: str, d: int) -> set[str]:
