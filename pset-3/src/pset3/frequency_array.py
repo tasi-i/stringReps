@@ -17,7 +17,7 @@ def frequencyArray(text: str, k: int) -> list[int]:
     counts[index] += 1
 
     #roll index forward onc character at a time
-    mask = 4 ** k
+    mask = 4 ** (k-1)
     for i in range(k, len(text)):
         index = 4 *  symbol_to_num[text[i]] % mask 
         counts[index] += 1
