@@ -44,7 +44,7 @@ def frequentWordsWithMismatches(text: str, k: int, d: int) -> set[str]:
     # find frequency of each word with d or fewer mismatches
     freqMap: dict = dict()
     # for every position in the sequence, take the k-mer starting at that point
-    for i in range(len(text)-k):
+    for i in range(len(text)-k+1):
         # generate all its neighbors (k-mers with d or fewer mismatches)
             # neighborhood includes the k-mer itself since it has 0 mismatches with itself
         neighbors: list[str] = generateNeighbors(text[i:i+k], prefixNode(), d)
