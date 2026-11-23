@@ -18,13 +18,15 @@ def _neighbors(pattern: str, d: int) -> set[str]:
 
 def frequentWordsWithMismatchesAndReverseComplements(text: str, k: int, d: int) -> set[str]:
     counts = {}
+    best = 0
     for i in range(len(text) - k + 1):
         kmer = text[i:i+k]
         for word in _neighbors(kmer, d):
-           counts[word] = counts.get(word, 0) + 1
+            counts[word] = counts.get(word, 0) + 1
         for word in _neighbors(reverseComplement(kmer), d):
-              counts[word] = counts.get(word, 0) + 1
+            counts[word] = counts.get(word, 0) + 1
         if not counts:
             return set()
         best = max(counts.values())
-        return {word for word, count in counts.items() if count == best}
+    
+    return {word for word, count in counts.items() if count == best}
