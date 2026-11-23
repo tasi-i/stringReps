@@ -34,7 +34,7 @@ jobs:
           jupyter nbconvert --to notebook --execute \
             --ExecutePreprocessor.timeout=120 \
             grading/pset4-review.ipynb \
-            --output grading/pset4-results.ipynb
+            --output pset4-results.ipynb --output-dir grading
 
       - name: Save grading results
         if: always()
